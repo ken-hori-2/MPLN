@@ -1,7 +1,8 @@
 # MP_Large
 
 # DEMO
-![anime](https://user-images.githubusercontent.com/73274492/224077391-227578cf-12c9-466d-90f3-515a9ad8ce04.gif)
+<!-- ![anime](https://user-images.githubusercontent.com/73274492/224077391-227578cf-12c9-466d-90f3-515a9ad8ce04.gif) -->
+![anime_new](https://user-images.githubusercontent.com/73274492/224292120-a41d18bc-8ffc-493f-adf2-4372afc95529.gif)
 
 
 
@@ -9,13 +10,13 @@
 # Lost Behavior Model
 <!-- （リポジトリ/プロジェクト/OSSなどの名前） -->
  
-"Lost Behavior Model" is an algorithm of lost behavior simulations with Python.
+"Lost Behavior Model" is an Algorithm of lost behavior simulations with Python.
 
 <!-- This repository is an algorithm version. 
 
 The code for visualization is in other repositories. -->
 
-This repository is Algorithms and Visualization version.
+This repository is an Algorithms and Visualization version.
 
 # Prior Information
 
