@@ -1,6 +1,8 @@
 # MPLN
 Master Paper Large New
 
+New large environment for master thesis.
+
 # DEMO
 <!-- ![anime](https://user-images.githubusercontent.com/73274492/224077391-227578cf-12c9-466d-90f3-515a9ad8ce04.gif) -->
 ![anime_new](https://user-images.githubusercontent.com/73274492/224292120-a41d18bc-8ffc-493f-adf2-4372afc95529.gif)
