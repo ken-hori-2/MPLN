@@ -3,10 +3,6 @@ from lib2to3.pytree import Node
 from sre_parse import State
 import numpy as np
 from itertools import count
-# import pprint
-
-
-
 
 class Property():
     def __init__(self, *arg):
@@ -26,36 +22,18 @@ class Property():
                             [7, "B"],
                             [7, "A"],
                             [0, "s"]
-                            
                             ])
 
     
     def reference(self):
         
-        
         Node = self.pre[:, 1]
         Arc = self.pre[:, 0]
-        # print(Node)
-        # print(Arc)
         Node = Node.tolist()
         Arc = Arc.tolist()
         num = [float(i) for i in Arc]
-        # print(type(num))
         Arc_sum = sum(num)
-        # print(Arc_sum)
-
         PERMISSION = [
-                
-                
-                # [Arc_sum-float(Arc[5])-float(Arc[4])-float(Arc[3])-float(Arc[2])-float(Arc[1])-float(Arc[0])],
-                # [Arc_sum-float(Arc[5])-float(Arc[4])-float(Arc[3])-float(Arc[2])-float(Arc[1])],
-                # [Arc_sum-float(Arc[5])-float(Arc[4])-float(Arc[3])-float(Arc[2])],
-                # [Arc_sum-float(Arc[5])-float(Arc[4])-float(Arc[3])],
-                # [Arc_sum-float(Arc[5])-float(Arc[4])],
-                # [Arc_sum-float(Arc[5])],
-                # [Arc_sum]
-
-                
                 [0],
                 [3],
                 [6],

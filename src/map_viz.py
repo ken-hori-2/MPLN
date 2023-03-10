@@ -4,12 +4,6 @@ import numpy as np
 import os
 from datetime import datetime
 
-def now_str(str_format='%Y%m%d%H%M'): #image name yyyy/mm/dd
-    return datetime.now().strftime(str_format)
-
-# result_dir = '/Users/ken/Desktop/MP/Large/data/' + now_str(str_format='%Y%m%d_%H%M%S')
-# os.makedirs(result_dir, exist_ok=True)
-# i=0
 
 class DEMO():
 
@@ -27,8 +21,6 @@ class DEMO():
         
         if viz:
             size = -self.env.row_length
-            # fig = plt.figure(figsize=(self.env.row_length, self.env.column_length))
-            
             
             "Normal - Large"
             # fig = plt.figure(figsize=(10, 5)) # here
@@ -92,10 +84,8 @@ class DEMO():
             # test = [[1.0 for i in range(-size)] for i in range(-size)] #2Dgridmap(xw, yw) # Node # here
 
             if Backed:
-                # print("===============\n==================\nNULL")
                 self.BP = Backed
-                # print("BP:", self.BP)
-
+                
             for ix in range(-size):
                 for iy in range(-size):   
                     if self.env.grid[ix][iy] == 9:
@@ -106,19 +96,10 @@ class DEMO():
                         
                         if self.env.NODELIST[ix][iy] in Node: # Node
                             test[ix][iy] = 0.5 # 1 #sandy terrain
-                        # elif self.env.NODELIST[ix][iy] == "x":
-                        #     test[ix][iy] = 0.1 #sandy terrain
-                            # print("===== Node =====:", self.BP)
-
-                        ##### Backed #####
                         
                         if self.env.NODELIST[ix][iy] in self.BP:
                             test[ix][iy] = 1
-                            # print("Draw Backed")
-                        ##### Backed #####
-            # print("====== end ======")
 
-            "Add"
             test = np.flip(test, 1)
             test = np.rot90(test, k=1)
             # lm = ax1.pcolor(x, -y, test, vmax=1, cmap=ax1.cm.Greens, alpha = 1.0) # マス目が消える
@@ -134,20 +115,7 @@ class DEMO():
             map  = np.flip(map, 1)
             map = np.rot90(map, k=1)
             known = ax1.pcolor(x, -y, map, vmax=1, cmap=customized_gray)
-
-
-            "----------"
-            # Node = ["A", "B", "C", "D", "O", "E", "F", "G",     "g", "s"]
-
-
-            # Node = ["A", "B", "C", "D", "E", "F", "O", "g", "s"]
             Node = ["s", "A", "B", "C", "D", "E", "F", "O", "H", "I", "J", "K", "g"]
-
-            # if self.env.grid[state.row][state.column] in Node:
-            # self.to_arrows(A, V)
-            "----------"
-            
-            # ax1.plot(state.column, -state.row, ".y", markersize=10)
             if self.env.NODELIST[state.row][state.column] in Node:
                 # ax1.plot(state.column, -state.row, ".r", markersize=10)
                 # ax1.plot(state.column, -state.row, ".g", markersize=80, alpha = 0.2)
