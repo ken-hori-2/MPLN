@@ -17,7 +17,7 @@ from agent import Agent
 "Normal - Large"
 # from set import Setting # here
 # from set_large import Setting
-from set_large2 import Setting
+from set_large_v2 import Setting
 
 # from set_mp import Setting
 import pprint
