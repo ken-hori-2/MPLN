@@ -30,7 +30,7 @@ from datetime import datetime
 def now_str(str_format='%Y%m%d%H%M'): #image name yyyy/mm/dd
     return datetime.now().strftime(str_format)
 
-result_dir = '/Users/ken/Desktop/MP/Large/data/' + now_str(str_format='%Y%m%d_%H%M%S')
+result_dir = '/Users/ken/Desktop/before/MPLN/data/' + now_str(str_format='%Y%m%d_%H%M%S')
 os.makedirs(result_dir, exist_ok=True)
 
 
