@@ -96,7 +96,8 @@ class Algorithm_exp():
             pass
         
         "----- Add 2D Back x-----"
-        if self.retry_num >=1: # here
+        # リトライ一回以上で直近のxに戻る -> xに5回戻っても次のNodeが見つけられない時はoのNodeに戻る
+        if self.retry_num >=1: # here リトライ一回以上
             if self.rrr < 5:
                 # print("NODE POSITION x :", self.NODE_POSITION_x)
                 self.state = self.NODE_POSITION_x

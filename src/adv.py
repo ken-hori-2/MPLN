@@ -59,8 +59,8 @@ class Algorithm_advance():
         self.VIZL = []
         self.VIZD = []
         self.goal = arg[8]
-        self.Node_l = ["s", "O", "A", "B", "C", "D", "E", "F", "g", "x"] # here
-        self.Node_l = ["s", "A", "B", "C", "D", "E", "F", "O", "g", "x"] # here
+        # self.Node_l = ["s", "O", "A", "B", "C", "D", "E", "F", "g", "x"] # here
+        # self.Node_l = ["s", "A", "B", "C", "D", "E", "F", "O", "g", "x"] # here
         self.Node_l = ["s", "A", "B", "C", "D", "E", "F", "O", "H", "I", "J", "K", "g", "x"]
         "-- init --"
         self.old = "s"
@@ -88,7 +88,7 @@ class Algorithm_advance():
                   "K":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                   "g":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                   "x":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
-        self.Node = ["s", "A", "B", "C", "D", "E", "F", "O", "g", "x"] # here
+        # self.Node = ["s", "A", "B", "C", "D", "E", "F", "O", "g", "x"] # here
         self.Node = ["s", "A", "B", "C", "D", "E", "F", "O", "H", "I", "J", "K", "g", "x"]
         self.l = pd.DataFrame(self.l, index = pd.Index(self.Node))
         self.move_cost_result = []
@@ -100,7 +100,7 @@ class Algorithm_advance():
                     },
                     index=self.Node_l)
         self.Attribute.index.name = "Node"
-        test = self.Attribute.loc["A":"A"]
+        # test = self.Attribute.loc["A":"A"]
         "============================================== Visualization ver. との違い =============================================="
 
     def hierarchical_model_O(self, ΔS): # 良い状態では小さいずれは気にしない(でもそもそも距離のずれは気にする必要ないかも)
@@ -221,8 +221,8 @@ class Algorithm_advance():
             kizyun_d = 0.0 # start 地点
         # print("ΔS_Arc【基準ストレス】 : {}".format(kizyun_d))
 
-        if not self.NODELIST[self.state.row][self.state.column] == "s":
-            self.SAVE_ARC.append(round(self.move_step, 2))
+        # if not self.NODELIST[self.state.row][self.state.column] == "s":
+        #     self.SAVE_ARC.append(round(self.move_step, 2))
         self.move_step = 0
 
         
@@ -258,22 +258,22 @@ class Algorithm_advance():
         if self.Observation[self.state.row][self.state.column] == -1: # 0だと0.0も含まれてしまう
             self.Observation[self.state.row][self.state.column] = round(abs(ΔS), 3)
 
-        "全部コメントアウトの時はsettingのobservationの数値をそのまま使う"
-        try:
-            self.OBS.append(self.Observation[self.state.row][self.state.column])
-        except:
-            self.OBS = self.OBS.tolist()
-            self.OBS.append(self.Observation[self.state.row][self.state.column])
+        # "全部コメントアウトの時はsettingのobservationの数値をそのまま使う"
+        # try:
+        #     self.OBS.append(self.Observation[self.state.row][self.state.column])
+        # except:
+        #     self.OBS = self.OBS.tolist()
+        #     self.OBS.append(self.Observation[self.state.row][self.state.column])
             
         self.Attribute.loc[f"{Landmark}", "stress"] = self.Observation[self.state.row][self.state.column]
         
         self.Add_Advance = True
-        self.BPLIST.append(self.state)
-        "BPLISTを保存"
-        for bp, stress in zip(self.BPLIST, self.OBS):
-            if bp not in self.Storage:
-                self.Storage.append(bp)
-                self.Storage_Stress.append(stress)
+        # self.BPLIST.append(self.state)
+        # "BPLISTを保存"
+        # for bp, stress in zip(self.BPLIST, self.OBS):
+        #     if bp not in self.Storage:
+        #         self.Storage.append(bp)
+        #         self.Storage_Stress.append(stress)
                 
         self.STATE_HISTORY.append(self.state)
         self.TOTAL_STRESS_LIST.append(self.total_stress)
@@ -302,7 +302,7 @@ class Algorithm_advance():
     def nomatch(self, Node, Arc):
 
         judge_node__x = False
-        
+
         maru = ["O", "A", "B", "C", "D", "g"] # この関数はmatchだから意味ない
         if not self.NODELIST[self.state.row][self.state.column] in maru:
             LM = 1.0
@@ -354,7 +354,7 @@ class Algorithm_advance():
             if self.M/(self.M+self.n) >= 0.5 + self.RATE:
                 self.TRIGAR = True
                 self.COUNT += 1
-                self.BPLIST.append(self.state)
+                # self.BPLIST.append(self.state)
                 self.Add_Advance = True
                 judge_node__x = True
 
@@ -373,7 +373,7 @@ class Algorithm_advance():
         self.env.mark(self.state, self.TRIGAR) # mdp実装用
         self.TRIGAR = True
         self.COUNT += 1
-        self.BPLIST.append(self.state) # Arcを計算する為に、最初だけ必要
+        # self.BPLIST.append(self.state) # Arcを計算する為に、最初だけ必要
         self.Add_Advance = True
         "============================================== Visualization ver. との違い =============================================="
         # print(f"🤖 State:{self.state}")
@@ -385,7 +385,7 @@ class Algorithm_advance():
         # self.rate_list.append(self.n/(self.M+self.n))    # ○
         self.rate_list.append(self.M/(self.M+self.n))      # ×
         
-        self.SAVE_ARC.append(round(self.move_step, 2))
+        # self.SAVE_ARC.append(round(self.move_step, 2))
         self.VIZL.append(self.L_NUM)
         self.VIZD.append(self.D_NUM)
         self.new = "x"
@@ -418,9 +418,9 @@ class Algorithm_advance():
     def trigar(self, pre):
 
         self.env.mark(self.state, self.TRIGAR)
-        self.BPLIST.append(self.state) # Arcを計算する為に、最初だけ必要
+        # self.BPLIST.append(self.state) # Arcを計算する為に、最初だけ必要
         self.Add_Advance = True
-        self.SAVE_ARC.append(round(self.move_step, 2))
+        # self.SAVE_ARC.append(round(self.move_step, 2))
         self.new = "x"
 
         if self.NODELIST[self.state.row][self.state.column] in pre:
@@ -442,7 +442,7 @@ class Algorithm_advance():
         self.TRIGAR = TRIGAR
         self.grid = grid
         self.total_stress = total_stress # 今はストレス値は共有していないのでいらない
-        self.OBS = OBS
+        # self.OBS = OBS
         self.action = random.choice(self.env.actions) # コメントアウト 何も処理されない時はこれが prev action に入る
         self.Add_Advance = False
         self.Backed_just_before = Backed_just_before

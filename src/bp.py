@@ -24,20 +24,20 @@ class Algorithm_bp():
         self.COUNT = 0
         self.done = False
         self.TRIGAR = False
-        self.TRIGAR_REVERSE = False
+        # self.TRIGAR_REVERSE = False
         self.BACK = False
-        self.BACK_REVERSE = False
-        self.on_the_way = False
+        # self.BACK_REVERSE = False
+        # self.on_the_way = False
         self.bf = True
         self.STATE_HISTORY = []
-        self.BPLIST = []
-        self.PROB = []
-        self.Arc = []
+        # self.BPLIST = []
+        # self.PROB = []
+        # self.Arc = []
         self.OBS = []
-        self.Storage_Arc = []
-        self.SAVE = []
+        # self.Storage_Arc = []
+        # self.SAVE = []
         self.goal = arg[7]
-        self.Node_l = ["s", "A", "B", "C", "D", "E", "F", "O", "g", "x"] # here
+        # self.Node_l = ["s", "A", "B", "C", "D", "E", "F", "O", "g", "x"] # here
         self.Node_l = ["s", "A", "B", "C", "D", "E", "F", "O", "H", "I", "J", "K", "g", "x"]
         self.backed = []
         self.Unbacked = self.Node_l
@@ -124,22 +124,22 @@ class Algorithm_bp():
         self.VIZL.append(self.L_NUM)
         self.VIZD.append(self.D_NUM)
         self.TRIGAR = False
-        self.TRIGAR_REVERSE = False
+        # self.TRIGAR_REVERSE = False
 
     def BP(self, STATE_HISTORY, state, TRIGAR, OBS, BPLIST, action, Add_Advance, total_stress, SAVE_ARC, TOTAL_STRESS_LIST, move_cost_result, test_bp_st_pre, move_cost_result_X, standard_list, rate_list, map_viz_test, Attribute, VIZL, VIZD, LN, DN,     heatmap):
         self.STATE_HISTORY = STATE_HISTORY
         self.state = state
         self.TRIGAR = TRIGAR
-        self.OBS = OBS
-        self.BPLIST = BPLIST
-        self.Advance_action = action
+        # self.OBS = OBS
+        # self.BPLIST = BPLIST
+        # self.Advance_action = action
         self.bf = True
         self.state_history_first = True
         self.Add_Advance = Add_Advance
         self.Backed_just_before = False
         self.total_stress = total_stress
-        self.SAVE_ARC = SAVE_ARC
-        self.first_pop = True
+        # self.SAVE_ARC = SAVE_ARC
+        # self.first_pop = True
         self.BackPosition_finish = False
         pre, Node, Arc, Arc_sum, PERMISSION = self.refer.reference()
         self.TOTAL_STRESS_LIST = TOTAL_STRESS_LIST
@@ -214,7 +214,7 @@ class Algorithm_bp():
                         NP = self.next_attribute["STATE"][0]
                         NP = self.next_attribute["STATE"]
                         # print(f"========Decision Next State=======\n⚠️  NEXT POSITION:\n{NP}\n==================================")
-                        self.on_the_way = True 
+                        # self.on_the_way = True 
                     except:
                     # except Exception as e:
                     #     print('=== エラー内容 ===')
@@ -241,11 +241,12 @@ class Algorithm_bp():
                     break
 
                 else:
-                    if self.on_the_way:
-                        self.on_the_way = False
-                    else:
-                        # print("🔛 On the way BACK")
-                        pass
+                    # if self.on_the_way:
+                    #     self.on_the_way = False
+                    # else:
+                    #     # print("🔛 On the way BACK")
+                    #     pass
+                    pass
             except:
             # except Exception as e:
             #         print('=== エラー内容 ===')
@@ -281,6 +282,6 @@ class Algorithm_bp():
 
             heatmap[self.state.row][self.state.column] += 1
             self.COUNT += 1
-        self.COUNT = 0
+        # self.COUNT = 0
 
         return self.total_stress, self.STATE_HISTORY, self.state, self.OBS, self.BackPosition_finish, self.TOTAL_STRESS_LIST, self.move_cost_result_pre, self.test_bp_st_pre, self.Backed_just_before, self.standard_list, self.rate_list, self.map, self.VIZL, self.VIZD, self.L_NUM, self.D_NUM, self.backed,     heatmap
