@@ -207,7 +207,7 @@ class Algorithm_bp():
                         self.next_position_decision()
 
                         try:
-                            self.test.bp_viz(self.Attribute)
+                            self.test.bp_viz(self.Attribute, STATE_HISTORY)
                         except:
                             pass
                         

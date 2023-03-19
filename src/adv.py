@@ -228,7 +228,7 @@ class Algorithm_advance():
         
         # ΔS = 0.3 # これは蓄積分なので、戻る場所決定には使わない
 
-        maru = ["s", "A", "B", "C", "D", "E", "F", "O", "g"] # この関数はmatchだから意味ない
+        maru = ["s", "A", "B", "C", "D", "E", "F", "O", "H", "I", "J", "K", "g"] # この関数はmatchだから意味ない
         if not self.NODELIST[self.state.row][self.state.column] in maru:
             LM = 1.0
         else:
@@ -302,24 +302,16 @@ class Algorithm_advance():
     def nomatch(self, Node, Arc):
 
         judge_node__x = False
-
-        maru = ["O", "A", "B", "C", "D", "g"] # この関数はmatchだから意味ない
-        if not self.NODELIST[self.state.row][self.state.column] in maru:
-            LM = 1.0
-        else:
-            LM = 0.0
-
-        # LM = 1.0
-        # LM = 0.2
         
         # Node不一致なので基準距離は算出不可=0
         # kizyun_d = 1.0
         D = 0.0 # round(abs(1.0-kizyun_d), 3)
 
         "----- 属性の追加 -----"
-        maru = ["x", "O", "A", "B", "C", "D", "E"]
+        # maru = ["x", "O", "A", "B", "C", "D", "E"]
+        mismatch = ["x"]
         # Similar = ["A2", "B2", "C2", "D2", "E2"]
-        if self.NODELIST[self.state.row][self.state.column] in maru:
+        if self.NODELIST[self.state.row][self.state.column] in mismatch: # maru:
             LM = 1.0
         # elif self.NODELIST[self.state.row][self.state.column] in Similar:
         #     LM = 0.5
@@ -328,11 +320,11 @@ class Algorithm_advance():
         ΔS = 0.8*LM + 0.2*D # 0.5, 0.5だと距離のずれに敏感になり発生量が増える
         "----- 属性の追加 -----"
 
-        maru = ["x"] #, "O", "A", "B", "C", "D"]
+        # maru = ["x"] #, "O", "A", "B", "C", "D"] # mismatch
 
         "Add 0214 観測の不確実性"
         # maru = ["x", "O", "A", "B", "C", "D", "E"]
-        if self.NODELIST[self.state.row][self.state.column] in maru:
+        if self.NODELIST[self.state.row][self.state.column] in mismatch: # maru:
             self.total_stress += ΔS # 基準距離を可視化させないver.
             self.SIGMA_LIST.append(self.total_stress)
 
@@ -343,7 +335,7 @@ class Algorithm_advance():
         #         self.CrossRoad.append(self.state)
         #     # print("CrossRoad : {}\n\n\n".format(self.CrossRoad))
         # print("事前情報にないNode!!!!!!!!!!!!")
-        if self.NODELIST[self.state.row][self.state.column] in maru: # == "x":
+        if self.NODELIST[self.state.row][self.state.column] in mismatch: # maru: # == "x":
             
             true_or_false = self.hierarchical_model_X()
 
@@ -400,7 +392,7 @@ class Algorithm_advance():
                     })
 
         try:
-            self.test.viz(viz)
+            self.test.viz(viz, self.STATE_HISTORY)
         except:
             pass
         
@@ -622,6 +614,9 @@ class Algorithm_advance():
             # self.action, self.Reverse, self.TRIGAR = self.agent.policy_advance(self.state, self.TRIGAR, self.action)
             self.action, self.Reverse, self.TRIGAR = self.agent.mdp(self.state, self.TRIGAR, self.action,     states_known, self.map, self.grid, self.DIR,     self.VIZL, self.VIZD, self.STATE_HISTORY)
             self.pre_action = self.action
+
+            "----- Add -----"
+            # self.test.show(self.state, self.map, {}, self.DIR,     self.TRIGAR,     self.VIZL, self.VIZD,     self.STATE_HISTORY)
 
             if self.TRIGAR:
 

@@ -4,34 +4,33 @@ from tkinter import FIRST
 import numpy as np
 import random
 from sklearn import preprocessing
-
-"----- Virtual -----"
-from env_Virtual import Environment
-from agent_Virtual import Agent
-"----- Virtual -----"
-
-"----- Real -----"
-# from env import Environment # here
-# from agent import Agent # here
-"----- Real -----"
-
+from refer import Property
+import pandas as pd
+import os
+from datetime import datetime
 from adv import Algorithm_advance
 from bp import Algorithm_bp
 from exp import Algorithm_exp
 
-"env"
-"Normal - Large"
-# from set import Setting # here
+"----- Virtual -----"
+# from env_Virtual import Environment
+# from agent_Virtual import Agent
+"----- Virtual -----"
+
+"----- Real -----"
+from env import Environment # here
+from agent import Agent # here
+"----- Real -----"
+
+"----- Environment (Normal - Large) -----"
+# from set import Setting # Small 環境を変える時はenv/env_Virtualのreset(初期値も変える)
 # from set_large import Setting
-from set_large_v2 import Setting
+from set_large_v2 import Setting # Large(main)
+"----- Environment (Normal - Large) -----"
 
 
 
-from refer import Property
-import pandas as pd
 
-import os
-from datetime import datetime
 def now_str(str_format='%Y%m%d%H%M'): #image name yyyy/mm/dd
     return datetime.now().strftime(str_format)
 

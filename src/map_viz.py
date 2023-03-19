@@ -227,7 +227,7 @@ class DEMO():
 
 
 
-    def viz(self, viz):
+    def viz(self, viz, STATE_HISTORY):
         # fig = ax1.figure(figsize=(3, 3))
 
         # viz.plot()
@@ -236,13 +236,18 @@ class DEMO():
         
         
         
+        visualization = False # True
         
-        # viz.plot.line(subplots=True, layout=(3, 1), grid=False, figsize=(5, 5), style=['-', '--', '-.', ':'])
+        if visualization:
+            viz.plot.line(subplots=True, layout=(3, 1), grid=False, figsize=(5, 5), style=['-', '--', '-.', ':'])
+            # plt.show()
+            png_path = os.path.join(self.result_dir, "{}_x.png".format(len(STATE_HISTORY)))
+            plt.savefig(png_path)
+            plt.close()
+        else:
+            pass
 
-        # plt.show()
-        pass
-
-    def bp_viz(self, Attribute):
+    def bp_viz(self, Attribute, STATE_HISTORY):
         
         # Attribute[:5].plot.bar()
         # Attribute.plot.bar(subplots=True, layout=(1, 3), grid=False, figsize=(5+2, 5)) # , sharey=True) # 2, 2))
@@ -251,8 +256,14 @@ class DEMO():
         
         
         
-        # Attribute.plot.bar(subplots=True, layout=(1, 3), grid=False, figsize=(5, 5))
-        # self.Attribute.plot.bar()
+        visualization = False # True
         
-        # plt.show()
-        pass
+        if visualization:
+            Attribute.plot.bar(subplots=True, layout=(1, 3), grid=False, figsize=(5, 5))
+            # self.Attribute.plot.bar()
+            # plt.show()
+            png_path = os.path.join(self.result_dir, "{}.png".format(len(STATE_HISTORY)))
+            plt.savefig(png_path)
+            plt.close()
+        else:
+            pass

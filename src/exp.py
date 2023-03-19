@@ -376,6 +376,9 @@ class Algorithm_exp():
             
             self.pre_action = self.action
 
+            "----- Add -----"
+            # self.test.show(self.state, self.map, {}, DIR,     self.TRIGAR,     self.VIZL, self.VIZD,     self.STATE_HISTORY)
+
 
             if self.lost:
                 self.lost_state()

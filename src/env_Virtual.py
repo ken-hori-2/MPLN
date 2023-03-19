@@ -75,10 +75,10 @@ class Environment():
         # self.agent_state = State(27, 8)
 
 
-        "Normal - Large"
-        # self.agent_state = State(18, 8) # here
-        "修論"
-        self.agent_state = State(38, 8)
+        "----- Environment (Normal - Large) -----"
+        # self.agent_state = State(18, 8) # Small
+        self.agent_state = State(38, 8) # Large
+        "----- Environment (Normal - Large) -----"
         
         return self.agent_state
 
