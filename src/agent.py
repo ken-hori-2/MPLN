@@ -44,7 +44,7 @@ class Agent():
         self.All = False
         self.Reverse = False
         # from mdp_virtual import ValueIterationPlanner
-        from mdp_MP import ValueIterationPlanner
+        from mdp import ValueIterationPlanner
         test = ValueIterationPlanner(self.env, self.result_dir)
 
         next_diretion = [(self.actions[0]), (self.actions[1]), (self.actions[2]), (self.actions[3])]
@@ -227,7 +227,7 @@ class Agent():
         self.VIZD = VIZD
         
         # from mdp_virtual import ValueIterationPlanner
-        from mdp_MP import ValueIterationPlanner
+        from mdp import ValueIterationPlanner
 
         
         test = ValueIterationPlanner(self.env, self.result_dir)

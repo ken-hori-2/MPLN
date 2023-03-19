@@ -46,15 +46,15 @@ import glob
 #画像を入れる箱を準備
 pictures=[]
 
-images = sorted(glob.glob("/Users/ken/Desktop/MP/Large/data/20230310_190514/*.png"))
+images = sorted(glob.glob("/Users/ken/Desktop/before/MPLN/data/20230318_023735_r/*.png"))
 #画像を箱に入れていく
 for i in range(len(images)+50):
     try:
-        pic_name='/Users/ken/Desktop/MP/Large/data/20230310_190514/' +str(i+1)+ '.png'
+        pic_name='/Users/ken/Desktop/before/MPLN/data/20230318_023735_r/' +str(i+1)+ '.png'
         img = Image.open(pic_name)
         pictures.append(img)
     except:
         pass
 #gifアニメを出力する
-pictures[0].save('anime_new2.gif',save_all=True, append_images=pictures[1:],
+pictures[0].save('anim.gif',save_all=True, append_images=pictures[1:],
 optimize=True, duration=100, loop=0)

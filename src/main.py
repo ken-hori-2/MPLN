@@ -4,14 +4,20 @@ from tkinter import FIRST
 import numpy as np
 import random
 from sklearn import preprocessing
-# from env_virtual import Environment
-from env_v2 import Environment
 
+"----- Virtual -----"
+from env_Virtual import Environment
+from agent_Virtual import Agent
+"----- Virtual -----"
+
+"----- Real -----"
+# from env import Environment # here
+# from agent import Agent # here
+"----- Real -----"
+
+from adv import Algorithm_advance
 from bp import Algorithm_bp
 from exp import Algorithm_exp
-# from agent_virtual import Agent
-
-from agent import Agent
 
 "env"
 "Normal - Large"
@@ -19,9 +25,8 @@ from agent import Agent
 # from set_large import Setting
 from set_large_v2 import Setting
 
-# from set_mp import Setting
-import pprint
-from adv import Algorithm_advance
+
+
 from refer import Property
 import pandas as pd
 
