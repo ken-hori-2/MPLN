@@ -70,10 +70,11 @@ pip install python3
 Please execution python code named "main.py".
  
 ```bash
-git clone git@github.com:ken-hori-2/MP_Large.git
+git clone git@github.com:ken-hori-2/MPLN.git
 cd src
-python main.py (Virtual MDP ver.)
-python main2.py (Visual ver.)
+# python main.py (Virtual MDP ver.)
+# python main2.py (Visual ver.)
+python main.py
 ```
  
 # Note
